@@ -3,6 +3,7 @@ pipeline {
 
     tools {
       jdk 'jdk21'
+    }
 
     stages {
       stage('Checkout') {
@@ -26,7 +27,7 @@ pipeline {
       }
   }
 
-  post {
+  post{
       success {
            echo 'Build and execution successful!'
       }
@@ -34,6 +35,5 @@ pipeline {
            echo 'Build failed!'
       }
     }
-  }
 }
 
