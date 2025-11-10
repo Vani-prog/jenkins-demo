@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+
+    tools {
+      jdk 'jdk21'
+
+    stages {
+      stage('Checkout') {
+          steps {
+            git branch: 'main', url: 'https://github.com/Vani-prog/jenkins-demo'
+      }
+    }
+
+    stage('Compile') {
+        steps {
+            echo 'Compiling Java program...'
+            sh 'javac HelloWorld.java'
+        }
+    }
+
+    stage('Run') {
+        steps {
+            echo 'Running Java program...'
+            sh 'java HelloWorld'
+        }
+    }
+}
+
+post {
+    success {
+        echo 'Build and execution successful!'
+    }
+    failure {
+        echo 'Build failed!'
+    }
+  }
+}
