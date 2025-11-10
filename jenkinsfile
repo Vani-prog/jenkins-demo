@@ -2,19 +2,19 @@ pipeline {
     agent any
 
     stages {
-        stages('Checkout') {
+        stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/Vani-prog/jenkins-demo'
             }
         }
 
-      stages('Build') {
+      stage('Build') {
           steps {
               echo "Building..."
           }
       }
 
-      stages('Test') {
+      stage('Test') {
           steps {
               echo "Testing..."
           }
