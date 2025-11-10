@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    stages {
+        stages('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Vani-prog/jenkins-demo'
+            }
+        }
+
+      stages('Build') {
+          steps {
+              echo "Building..."
+          }
+      }
+
+      stages('Test') {
+          steps {
+              echo "Testing..."
+          }
+      }
+   }
+}
